@@ -1,0 +1,24 @@
+name: This a just demo test...
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo a string
+        run: echo "hello world"
+
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
+
