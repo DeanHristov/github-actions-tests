@@ -45,5 +45,11 @@ jobs:
         if: ${{env.SUPER_SECRET != ''}}
         run: |
           echo "I have a secret key" 
+  print-secret-keys:
+    runs-on: ubuntu-latest
+    steps:
+      - name: I gonna show my secret key
+        run: |
+          echo ${{ secret.ACCESS_TOKEN }}
 
 
