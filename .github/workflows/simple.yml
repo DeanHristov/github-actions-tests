@@ -31,4 +31,19 @@ jobs:
           WORLD : 'world'
         run: |
           echo $HELLO $WORLD
+  running-secrets-in-condition-statement:
+    runs-on: ubuntu-latest
+    env:
+      SUPER_SECRET: 'I have a secret'
+    steps:
+      - name: I haven't secret key
+        if: ${{env.SUPER_SECRET == ''}}
+        run: |
+          echo "I have no a secret key" 
+
+      - name: 'I got a secret key'
+        if: ${{env.SUPER_SECRET != ''}}
+        run: |
+          echo "I have a secret key" 
+
 
