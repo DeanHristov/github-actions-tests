@@ -10,6 +10,22 @@ on:
       - dev
 
 jobs:
+
+  encript-decrypt-a-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Decrypt GPG file
+        run:
+          run: |
+            gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.GPG_PASSPHRASE }}" --output ${{env.GITHUB_WORKSPACE}}/access-keys.json ${{env.GITHUB_WORKSPACE}}/access-keys.json.gpg
+
+      - name: 'Print the secret file'
+        run: |
+          cat ${{env.GITHUB_WORKSPACE}}/access-keys.json
+
   run-shell-commands:
     runs-on: ubuntu-latest
 
