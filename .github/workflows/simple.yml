@@ -19,7 +19,7 @@ jobs:
 
       - name: Decrypt GPG file
         run: |
-            gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.GPG_PASSPHRASE }}" --output ${{env.GITHUB_WORKSPACE}}/access-keys.json ${{env.GITHUB_WORKSPACE}}/access-keys.json.gpg
+            gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.GPG_PASSPHRASE }}" --output ${{env.GITHUB_WORKSPACE}}/access-keys.json access-keys.json.gpg
 
       - name: 'Print the secret file'
         run: |
