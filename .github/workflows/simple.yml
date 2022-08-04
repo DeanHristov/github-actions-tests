@@ -50,6 +50,6 @@ jobs:
     steps:
       - name: I gonna show my secret key
         run: |
-          echo ${{ secret.ACCESS_TOKEN }}
+          echo ${{ secrets.ACCESS_TOKEN }}
 
 
