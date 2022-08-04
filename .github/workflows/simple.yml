@@ -21,4 +21,14 @@ jobs:
         run: |
           node -v
           npm -v
+  print-commands:
+    runs-on: ubuntu-latest
+    needs: [run-shell-commands]
+    steps:
+      - name: define variables
+        env:
+          HELLO : 'hello'
+          WORLD : 'world'
+        run: |
+          echo $HELLO $WORLD
 
