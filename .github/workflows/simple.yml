@@ -51,5 +51,18 @@ jobs:
       - name: I gonna show my secret key
         run: |
           echo ${{ secrets.ACCESS_TOKEN }}
+        shell: bash
+
+  running-external-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simple JS action
+        id: js-action
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: "Dean Hristov"
+      - name: Log greeting time
+        run: echo "${{ steps.js-action.output.time}}"
 
 
