@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         node_version: [10, 12, 14, 16]
+
     steps:
       - name: Logging basic node version
         run: node -v
@@ -15,7 +16,7 @@ jobs:
       - name: Installing nodejs (v16)
         uses: actions/setup-node@v3
         with:
-          node-version: ${{$matrix.node_version}}
+          node-version: ${{matrix.node_version}}
 
       - name: check node version again
         run: node -v
