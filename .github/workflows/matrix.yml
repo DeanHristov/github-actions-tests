@@ -5,12 +5,13 @@ on:
 jobs:
   node-version:
     runs-on: ubuntu-latest
+
     steps:
       - name: Logging basic node version
         run: node -v
 
       - name: Checkout repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Installing nodejs (v16)
       - uses: actions/setup-node@v3
