@@ -6,6 +6,7 @@ jobs:
   node-version:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 2
       matrix:
         node_version: [10, 12, 14, 16]
 
